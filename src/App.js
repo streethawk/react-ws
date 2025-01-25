@@ -1,6 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
 import React, { useState } from "react";
+import "./App.css";
 
 function App() {
     const [showLoginDropdown, setShowLoginDropdown] = useState(false);
@@ -8,32 +7,32 @@ function App() {
     return (
         <div>
             {/* Header Section */}
-            <header style={styles.header}>
-                <div style={styles.logoContainer}>
+            <header className="header">
+                <div className="logo-container">
                     <img 
                         src="https://via.placeholder.com/50" 
                         alt="Company Logo" 
-                        style={styles.logo} 
+                        className="logo" 
                     />
                     <div>
-                        <h1 style={styles.companyName}>Your Company Name</h1>
-                        <p style={styles.punchline}>Empowering Careers, Enabling Success</p>
+                        <h1 className="company-name">Your Company Name</h1>
+                        <p className="punchline">Empowering Careers, Enabling Success</p>
                     </div>
                 </div>
-                <nav style={styles.nav}>
+                <nav className="nav">
                     <a href="#home">Home</a>
                     <a href="#about">About Us</a>
                     <a href="#jobs">Jobs</a>
                     <a href="#resources">Resources</a>
                     <a href="#contact-us">Contact Us</a>
-                    <div
-                        style={styles.login}
-                        onMouseEnter={() => setShowLoginDropdown(true)}
+                    <div 
+                        className="login" 
+                        onMouseEnter={() => setShowLoginDropdown(true)} 
                         onMouseLeave={() => setShowLoginDropdown(false)}
                     >
                         <span>Login</span>
                         {showLoginDropdown && (
-                            <div style={styles.dropdown}>
+                            <div className="dropdown">
                                 <a href="#candidate-login">Candidate Login</a>
                                 <a href="#company-login">Company Login</a>
                             </div>
@@ -43,23 +42,23 @@ function App() {
             </header>
 
             {/* Search Section */}
-            <section style={styles.searchSection}>
+            <section className="search-section">
                 <input 
                     type="text" 
                     placeholder="Search for jobs..." 
-                    style={styles.searchBar} 
+                    className="search-bar" 
                 />
-                <button style={styles.searchButton}>Search</button>
+                <button className="search-button">Search</button>
             </section>
 
             {/* Main Section */}
-            <main style={styles.main}>
-                <div style={styles.frameContainer}>
-                    <div style={styles.frame}>
+            <main className="main">
+                <div className="frame-container">
+                    <div className="frame">
                         <h2>Let's Hire</h2>
                         <p>Find the best talent for your company.</p>
                     </div>
-                    <div style={styles.frame}>
+                    <div className="frame">
                         <h2>Get Hired</h2>
                         <p>Explore job opportunities and build your career.</p>
                     </div>
@@ -67,7 +66,7 @@ function App() {
             </main>
 
             {/* Footer */}
-            <footer style={styles.footer}>
+            <footer className="footer">
                 <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
             </footer>
         </div>
