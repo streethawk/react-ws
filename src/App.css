@@ -1,36 +1,99 @@
-/* General Styles */
+/* Ensure the html and body cover the full viewport */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Full height of the viewport */
+    width: 100%;  /* Full width of the viewport */
+    box-sizing: border-box;
+}
+
+/* Ensure the #root div takes up the full container space */
+#root {
+    height: 100%; /* Inherit the full height from html and body */
+    width: 100%;  /* Inherit the full width from html and body */
+    display: flex; /* Optional: Use flexbox for child content alignment */
+    flex-direction: column; /* Optional: Arrange child elements vertically */
+}
+
+.full-screen-div {
+    height: 100%;         /* Occupy 100% of parent container's height */
+    width: 100%; 
+    display: flex; /* Optional: Use flexbox for child content alignment */
+    flex-direction: column;         /* Occupy 100% of parent container's width */
+    background-color: lightblue; /* Optional: For visual testing */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Optional: Full width of the viewport */
+    overflow-x: hidden; /* Prevent horizontal scrolling due to overflow */
 }
 
-/* Header Section */
+
 .header {
+    flex: 0 0 25%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: #333;
-    color: white;
+    background-color: #333333;
+    color: bisque;
     padding: 20px;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .logo {
-    margin-right: 15px;
     width: 50px;
     height: 50px;
+    margin-right: 15px;
 }
 
-.company-name {
+/*.company-name {
     margin: 0;
-}
+}*/
+.company-name {
+    font-family: 'Poppins', sans-serif; /* Clean, modern font */
+    font-size: 2.5rem; /* Adjust size to fit your design */
+    font-weight: 700; /* Bold for prominence */
+    text-align: center; /* Center the name */
+    color: #007cf0; /* Primary brand color */
+    overflow: hidden; /* Prevent text from appearing outside the container */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+  
+  .word {
+    display: inline-block;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 0.5s ease-in-out forwards; /* Fade and move up */
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Move to its original position */
+    }
+  }
+  
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  
 
 .punchline {
     margin: 0;
@@ -46,8 +109,8 @@ body {
 }
 
 .nav a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     font-weight: bold;
 }
 
@@ -55,65 +118,30 @@ body {
     text-decoration: underline;
 }
 
-.login {
-    position: relative;
-}
-
-.dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    color: #333;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.dropdown a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-}
-
-.dropdown a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Search Section */
 .search-section {
-    padding: 20px;
-    text-align: center;
+    padding: 20px;           /* Optional: Space inside the div */
+    text-align: center;      /* Center-align the text inside the div */
+    width: 50%;              /* Cover 50% of the parent's width */
+    height: 50%;             /* Cover 50% of the parent's height */
+    margin: auto;            /* Center the div horizontally (if needed) */
+    background-color: lightblue; /* Optional: Background for visual testing */
 }
+
 
 .search-bar {
     width: 70%;
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
 }
 
 .search-button {
     padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
     background-color: #333;
     color: white;
+    border: none;
+    cursor: pointer;
     border-radius: 4px;
-}
-
-.search-button:hover {
-    background-color: #555;
-}
-
-/* Main Section */
-.main {
-    padding: 20px;
-    text-align: center;
 }
 
 .frame-container {
@@ -132,26 +160,53 @@ body {
     background-color: white;
 }
 
-/* Footer */
 .footer {
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #f1f1f1;
-    margin-top: 20px;
 }
-/* Add this for active menu highlighting */
-.nav a {
-    text-decoration: none;
+
+.contact-us {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* Login Section */
+.login-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.login-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0073b1; /* LinkedIn Blue */
     color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-}
-
-.nav a:hover {
-    text-decoration: underline;
-}
-
-.nav a.active {
-    background-color: #555;
+    border: none;
+    cursor: pointer;
     border-radius: 4px;
+}
+
+.login-button:hover {
+    background-color: #005582;
+}
+
+/* Slider Section */
+.slider-section, .services-section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.slider-section h2, .services-section h2 {
+    margin-bottom: 10px;
 }

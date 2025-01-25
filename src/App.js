@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Jobs from "./pages/Jobs";
 import Resources from "./pages/Resources";
+import CompanyHire from "./pages/CompanyHire";
+import CandidateHire from "./pages/CandidateHire";
+import ContactUs from "./pages/ContactUs";
+import CompanyName from './CompanyName';
+import "./App.css";
+
 
 function App() {
-    const [showLoginDropdown, setShowLoginDropdown] = useState(false);
-
     return (
         <Router>
-            <div>
-                {/* Header Section */}
+            <div className="full-screen-div">
+                {/* Navigation */}
                 <header className="header">
                     <div className="logo-container">
                         <img 
@@ -20,7 +24,7 @@ function App() {
                             className="logo" 
                         />
                         <div>
-                            <h1 className="company-name">Your Company Name</h1>
+                            <CompanyName name="Awesome Company Name" />
                             <p className="punchline">Empowering Careers, Enabling Success</p>
                         </div>
                     </div>
@@ -29,34 +33,22 @@ function App() {
                         <Link to="/about-us">About Us</Link>
                         <Link to="/jobs">Jobs</Link>
                         <Link to="/resources">Resources</Link>
-                        <Link to="#contact-us">Contact Us</Link>
-                        <div
-                            className="login"
-                            onMouseEnter={() => setShowLoginDropdown(true)}
-                            onMouseLeave={() => setShowLoginDropdown(false)}
-                        >
-                            <span>Login</span>
-                            {showLoginDropdown && (
-                                <div className="dropdown">
-                                    <Link to="#candidate-login">Candidate Login</Link>
-                                    <Link to="#company-login">Company Login</Link>
-                                </div>
-                            )}
-                        </div>
                     </nav>
                 </header>
 
-                {/* Page Routes */}
+                {/* Routes */}
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about-us" element={<AboutUs />} />
                     <Route path="/jobs" element={<Jobs />} />
                     <Route path="/resources" element={<Resources />} />
+                    <Route path="/company-hire" element={<CompanyHire />} />
+                    <Route path="/candidate-hire" element={<CandidateHire />} />
                 </Routes>
 
                 {/* Footer */}
                 <footer className="footer">
-                    <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+                    <ContactUs />
                 </footer>
             </div>
         </Router>
